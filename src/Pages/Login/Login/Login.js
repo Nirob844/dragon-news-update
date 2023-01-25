@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
@@ -31,7 +32,12 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                navigate(from, { replace: true });
+                if (user.emailVerified) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Your email is not verified. Please verify your email address.')
+                }
             })
             .catch(error => {
                 console.error(error);
