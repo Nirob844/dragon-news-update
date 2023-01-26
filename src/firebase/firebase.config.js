@@ -6,7 +6,7 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDqQKPzY5eHa3RcoFdVF5rIYlVnP-Hecxw",
-  authDomain: "dragon-nesw.firebaseapp.com",
+  authDomain: process.env.REACT_APP_authDomain,
   projectId: "dragon-nesw",
   storageBucket: "dragon-nesw.appspot.com",
   messagingSenderId: "294480316689",
